@@ -14,13 +14,14 @@ pipeline {
             }
             stage('Deploy') {
                   steps {
-                        echo "Deploying in Staging Area"
-                  }
+                        scp/home/ubuntu/.jenkins/workspace/scriptedPipeline/webapp/target/webapp.war ubuntu@172.31.80.201:/var/lib/tomcat9/webapps/testapps.war
+                        {
             }
             stage('Deploy Production') {
                   steps {
-                        echo "Deploying in Production Area"
-                  }
+                        scp/home/ubuntu/.jenkins/workspace/scriptedPipeline/webapp/target/webapp.war ubuntu@172.31.80.246:/var/lib/tomcat9/webapps/testapps.war
+ 
+                        }
             }
       }
 }
